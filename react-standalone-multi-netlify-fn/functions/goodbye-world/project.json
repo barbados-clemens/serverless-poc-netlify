@@ -1,0 +1,53 @@
+{
+  "name": "functions-goodbye-world",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "functions/goodbye-world/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/functions/goodbye-world",
+        "format": ["cjs"],
+        "bundle": true,
+        "main": "functions/goodbye-world/src/goodbye-world.ts",
+        "tsConfig": "functions/goodbye-world/tsconfig.app.json",
+        "assets": ["functions/goodbye-world/src/assets"],
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "functions-goodbye-world:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "functions-goodbye-world:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["functions/goodbye-world/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

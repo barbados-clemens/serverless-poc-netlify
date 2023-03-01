@@ -1,0 +1,53 @@
+{
+  "name": "functions-hello-world",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "functions/hello-world/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/functions/hello-world",
+        "format": ["cjs"],
+        "bundle": true,
+        "main": "functions/hello-world/src/hello-world.ts",
+        "tsConfig": "functions/hello-world/tsconfig.app.json",
+        "assets": ["functions/hello-world/src/assets"],
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "functions-hello-world:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "functions-hello-world:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["functions/hello-world/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

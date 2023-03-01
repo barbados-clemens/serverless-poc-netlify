@@ -1,0 +1,85 @@
+{
+  "name": "react-standalone-multi-netlify-fn",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "./src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/react-standalone-multi-netlify-fn"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "react-standalone-multi-netlify-fn:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "react-standalone-multi-netlify-fn:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "react-standalone-multi-netlify-fn:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "react-standalone-multi-netlify-fn:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "react-standalone-multi-netlify-fn:build:development"
+        },
+        "production": {
+          "buildTarget": "react-standalone-multi-netlify-fn:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/react-standalone-multi-netlify-fn"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "coverage/react-standalone-multi-netlify-fn"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "deploy": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "netlify deploy --build --context deploy-preview"
+      },
+      "configurations": {
+        "production": {
+          "command": "netlify deploy --prod --build --context production"
+        }
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["functions-hello-world", "functions-goodbye-world"]
+}

@@ -1,0 +1,5 @@
+[build]
+  publish="dist/react-standalone-multi-netlify-fn/"
+  command="npx nx build"
+[functions]
+  directory="dist/functions/"
