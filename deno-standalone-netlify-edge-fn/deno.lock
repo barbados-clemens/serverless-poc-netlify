@@ -1,0 +1,19 @@
+{
+  "version": "2",
+  "remote": {
+    "https://edge.netlify.com/": "610a527f95d87f722762bf3745be72361ad681411f25bf7b86e3ace654513531",
+    "https://edge.netlify.com/bootstrap/account.ts": "db03119ab77f583fe3085958b3739043713f84454adba665666b7d437531dab4",
+    "https://edge.netlify.com/bootstrap/config.ts": "c62c806de0153a128ceeb91aad7aaef220290debc3d7abe3f98262f02cc85f7f",
+    "https://edge.netlify.com/bootstrap/context.ts": "09207189e7a90ef6bb2921354204ad03f351f2c388d6e488da140201fd08d8ca",
+    "https://edge.netlify.com/bootstrap/cookie.ts": "fa4756ae48228373107f789b18b7db5244d9e6a1bcb5abf4487f0a838aae1c44",
+    "https://edge.netlify.com/bootstrap/edge_function.ts": "b8253e86aa83c67341f5cfedeba5049d77fbf84dcab7eceff7566b7728ae9b39",
+    "https://edge.netlify.com/bootstrap/geo.ts": "aa52dbe3bd74ae7568e20772700568751f812aa8ca2af728db7462a1d67c2d76",
+    "https://edge.netlify.com/bootstrap/site.ts": "92469673f289c124a9985c7027dc6c166364371b209b5a674aa05d482ad5583b",
+    "https://esm.sh/react-dom@18.2.0/server": "94f4af3b5d03622bc125378d4143e04f3fb9d56ef7669bdcd7fec75a05fcb987",
+    "https://esm.sh/react@18.2.0": "84aa07282d2f3c843f7d56daeae0be41ceae768391c4418f7358dd64e8fe4eca",
+    "https://esm.sh/stable/react@18.2.0/deno/react.js": "99f4a29109464569449be1002a828827c6dc9d7a386d28da012c29ba4cc88abd",
+    "https://esm.sh/v109/@types/react-dom@18.0.11/server~.d.ts": "94b93fbb73eb1cfab2509e6c7b2aed480d9c840448adce9ac0260d6b848857e6",
+    "https://esm.sh/v109/@types/react@18.0.26/index.d.ts": "fa09b4df2c915a7ca58adad8c4c601ccfb27241548e5c3732558d39ce197d6d2",
+    "https://esm.sh/v109/react-dom@18.2.0/deno/server.js": "856a38f0fc1dd4c3c2a3432d88fbaf29da15eef3155c0cb8ea8de1febe13b197"
+  }
+}

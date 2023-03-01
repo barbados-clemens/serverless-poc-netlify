@@ -1,0 +1,11 @@
+[build]
+  edge_functions = "src"
+  publish = "src"
+
+[[edge_functions]]
+  function = "hello-geo"
+  path = "/api/geo"
+
+[[edge_functions]]
+  function = "app"
+  path = "/"
