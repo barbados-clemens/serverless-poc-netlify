@@ -1,0 +1,39 @@
+{
+  "name": "edge-functions-geo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "edge-functions/geo/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/deno:bundle",
+      "outputs": ["dist/edge-functions/geo.js"],
+      "options": {
+        "main": "edge-functions/geo/src/geo.ts",
+        "outputFile": "dist/edge-functions/geo.js",
+        "denoConfig": "edge-functions/geo/deno.json"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/deno:run",
+      "options": {
+        "buildTarget": "edge-functions-geo:build",
+        "watch": true
+      }
+    },
+    "test": {
+      "executor": "@nrwl/deno:test",
+      "outputs": ["coverage/edge-functions/geo"],
+      "options": {
+        "coverageDirectory": "coverage/edge-functions/geo",
+        "denoConfig": "edge-functions/geo/deno.json"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/deno:lint",
+      "options": {
+        "denoConfig": "edge-functions/geo/deno.json"
+      }
+    }
+  },
+  "tags": []
+}

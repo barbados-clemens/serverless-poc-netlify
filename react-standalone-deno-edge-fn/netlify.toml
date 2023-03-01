@@ -1,0 +1,30 @@
+[build]
+  publish="dist/react-standalone-deno-edge-fn/"
+  edge_functions="dist/edge-functions"
+  command="npx nx build"
+
+# TODO(caleb): rules are only processed 1 level deep
+# so the function file needs to be in the root of the build.edge_functions directory
+# this will require building all the functions into the dist/edge-functions directory instead of pointing to the source ts file. 
+# maybe this is a usecase for the "copy" executor?
+
+# add auth header
+[[edge_functions]]
+  function = "auth"
+  path = "/"
+
+[[edge_functions]]
+  function = "auth"
+  path = "/*"
+
+# replace INCLUDE_TITLE with the title text
+[[edge_functions]]
+  function = "rewrite"
+  path = "/*"
+
+# return geo info as json
+[[edge_functions]]
+  function = "geo"
+  path = "/api/geo"
+
+

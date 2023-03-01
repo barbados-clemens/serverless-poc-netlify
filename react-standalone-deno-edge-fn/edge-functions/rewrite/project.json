@@ -1,0 +1,39 @@
+{
+  "name": "edge-functions-rewrite",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "./edge-functions/rewrite/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/deno:bundle",
+      "outputs": ["dist/edge-functions/rewrite.js"],
+      "options": {
+        "main": "edge-functions/rewrite/src/rewrite.ts",
+        "outputFile": "dist/edge-functions/rewrite.js",
+        "denoConfig": "edge-functions/rewrite/deno.json"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/deno:run",
+      "options": {
+        "buildTarget": "edge-functions-rewrite:build",
+        "watch": true
+      }
+    },
+    "test": {
+      "executor": "@nrwl/deno:test",
+      "outputs": ["coverage/./edge-functions/rewrite"],
+      "options": {
+        "coverageDirectory": "coverage/./edge-functions/rewrite",
+        "denoConfig": "./edge-functions/rewrite/deno.json"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/deno:lint",
+      "options": {
+        "denoConfig": "./edge-functions/rewrite/deno.json"
+      }
+    }
+  },
+  "tags": []
+}

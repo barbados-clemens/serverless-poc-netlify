@@ -1,0 +1,9 @@
+{
+  "deno.enablePaths": [
+    "./edge-functions/geo",
+    "./edge-functions/rewrite",
+    "./edge-functions/auth"
+  ],
+  "deno.unstable": true,
+  "deno.importMap": "./import_map.json"
+}
